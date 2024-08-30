@@ -16,9 +16,9 @@ export const Header = () => {
 
     return (
         <div
-            className="relative isolate overflow-hidden py-3">
+            className={`relative isolate overflow-hidden py-3 ${open ? 'h-[900px]' : 'h-[600px]'} md:h-[700px]`}>
             <img src="src/assets/images/hero-bg.png" alt=""
-                 className="absolute inset-0 -z-10 w-full object-cover h-[600px] md:h-[700px] lg:h-screen object-center md:object-right lg:object-center opacity-85"/>
+                 className={`absolute inset-0 -z-10 w-full h-full object-cover lg:h-screen object-center md:object-right lg:object-center opacity-85`}/>
 
             <div className="mx-auto max-w-7xl px-4  md:px-10 min-h-[600px] md:min-h-[750px] lg:min-h-[1000px]">
                 <div className="flex justify-between items-center">
@@ -46,30 +46,36 @@ export const Header = () => {
                     </ul>
                 </div>
 
-                <motion.ul
-                    initial={{height: 0}}
-                    animate={{height: open ? 'auto' : 0}}
+                <motion.div
+                    initial={{y: -50}}
+                    animate={{y: open ? 0 : -50}}
+                    // transition={{duration: 0.5}}
+
+                    layout={"preserve-aspect"}
                     transition={{
-                        duration: 0.3,
+                        duration: 0.5,
                         type: 'spring',
-                        stiffness: 150,
                         damping: 20,
                         ease: 'easeInOut'
                     }}
-                    className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out w-full p-2 mt-2`}>
-                    {Links.map((link) => (
-                        <li key={link.name} className='font-semibold'>
-                            <a href={link.link} className='text-white'>{link.name}</a>
-                        </li>
-                    ))}
-                    <div onClick={() => navigate('/login')}>
-                        <span className="text-sm text-white">Login</span>
-                    </div>
-                </motion.ul>
+
+                    className={`md:hidden overflow-hidden w-full p-2 mt-2 ${open ? 'h-auto' : 'h-0'}`}>
+                    <ul>
+                        {Links.map((link) => (
+                            <li key={link.name} className='font-semibold py-2'>
+                                <a href={link.link}
+                                   className='text-white no-underline text-center block'>{link.name}</a>
+                            </li>
+                        ))}
+                        <div onClick={() => navigate('/login')} className="py-2 text-center">
+                            <span className="text-sm text-white">Login</span>
+                        </div>
+                    </ul>
+                </motion.div>
 
                 <div
                     className="text-start text-white mt-10 md:mt-0 m-auto h-[300px] md:h-[500px] lg:h-[600px] items-center flex">
-                    <div className=" justify-start max-w-2xl flex-col ">
+                    <div className=" justify-start max-w-2xl flex-col mt-14 lg:mt-0">
                         <h1 className="text-4xl md:text-5xl font-bold uppercase tracking-wider space-y-32 mb-8 md:mb-10">We
                             provide
                             best <br/>
@@ -80,7 +86,7 @@ export const Header = () => {
                             veritatis delectus repellat modi impedit sequi.</p>
                         <motion.button
                             whileHover={{scale: 1.1}}
-                            className=" bg-white rounded-md text-[#62d2a2] py-1 px-4 md:py-1.5 md:px-5 mt-5"
+                            className=" bg-white rounded-md text-[#62d2a2] py-1 px-4 md:py-1.5 md:px-5 mt-2 md:mt-5"
                             onClick={() => navigate('/login')}
                         >
                             <span className="text-sm md:text-lg">Read More</span>
