@@ -20,7 +20,7 @@ export const Header = () => {
             <img src="src/assets/images/hero-bg.png" alt=""
                  className={`absolute inset-0 -z-10 w-full h-full object-cover lg:h-screen object-center md:object-right lg:object-center opacity-85`}/>
 
-            <div className="mx-auto max-w-7xl px-4  md:px-10 min-h-[600px] md:min-h-[750px] lg:min-h-[1000px]">
+            <div className="mx-auto max-w-6xl px-4  md:px-10 min-h-[600px] md:min-h-[750px] lg:min-h-[1000px]">
                 <div className="flex justify-between items-center">
                     <div>
                         <span className="font-bold text-2xl lg:text-4xl text-[#ffffff] uppercase">Logo</span>
@@ -36,13 +36,13 @@ export const Header = () => {
                                 <a href={link.link} className='text-white'>{link.name}</a>
                             </li>
                         ))}
-                        <motion.div
-                            whileHover={{scale: 1.1}}
-                            className="flex justify-center border-2 border-dashed rounded-lg border-white cursor-pointer py-1.5 px-5"
-                            onClick={() => navigate('/login')}
-                        >
-                            <span className="text-sm md:text-md font-bold text-white">Login</span>
-                        </motion.div>
+                        {/*<motion.div*/}
+                        {/*    whileHover={{scale: 1.1}}*/}
+                        {/*    className="flex justify-center border-2 border-dashed rounded-lg border-white cursor-pointer py-1.5 px-5"*/}
+                        {/*    onClick={() => navigate('/login')}*/}
+                        {/*>*/}
+                        {/*    <span className="text-sm md:text-md font-bold text-white">Login</span>*/}
+                        {/*</motion.div>*/}
                     </ul>
                 </div>
 
@@ -67,9 +67,9 @@ export const Header = () => {
                                    className='text-white no-underline text-center block'>{link.name}</a>
                             </li>
                         ))}
-                        <div onClick={() => navigate('/login')} className="py-2 text-center">
-                            <span className="text-sm text-white">Login</span>
-                        </div>
+                        {/*<div onClick={() => navigate('/login')} className="py-2 text-center">*/}
+                        {/*    <span className="text-sm text-white">Login</span>*/}
+                        {/*</div>*/}
                     </ul>
                 </motion.div>
 
@@ -87,7 +87,7 @@ export const Header = () => {
                         <motion.button
                             whileHover={{scale: 1.1}}
                             className=" bg-white rounded-md text-[#62d2a2] py-1 px-4 md:py-1.5 md:px-5 mt-2 md:mt-5"
-                            onClick={() => navigate('/login')}
+                            // onClick={() => navigate('/login')}
                         >
                             <span className="text-sm md:text-lg">Read More</span>
                         </motion.button>

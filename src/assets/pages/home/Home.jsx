@@ -7,6 +7,8 @@ export const Home = () => {
         <>
             <Header/>
             <About/>
+
+            {/*<p><img src="src/assets/images/twitter.jpg" alt="twitter"/></p>*/}
         </>
     )
 }
